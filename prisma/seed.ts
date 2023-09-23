@@ -1,4 +1,4 @@
-import { addUser, deleteAllUsers } from "./utils";
+import { addUser, deleteAllUsers, deleteIncidentTypes } from "./utils";
 import { AddUserProps } from "./types";
 
 const user: AddUserProps = {
@@ -6,11 +6,14 @@ const user: AddUserProps = {
   name: "sjingo",
   password: "Reykjavik1@1",
 };
+
+// const incidents:
+
 async function seed() {
   // users
   await deleteAllUsers();
   await addUser(user);
   // incidentTypes
-  // await deleteIncidentTypes()
-  // await inciddents.forEach(addIncident)
+  await deleteIncidentTypes();
+  // await incidents.forEach(addIncident)
 }

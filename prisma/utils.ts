@@ -36,3 +36,8 @@ export const addUser = async ({
     return !seed ? NextResponse.json(user) : true;
   }
 };
+
+export const deleteIncidentTypes = async () => {
+  const result = await prisma.incidentType.deleteMany({});
+  return result;
+};
