@@ -3,7 +3,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { hash } from "bcrypt";
 import { NextResponse } from "next/server";
 
-export async function POST(req: Request) {
+export async function GET(req: Request) {
   const { email, password, name } = await req.json();
   const exists = await prisma.user.findUnique({
     where: {

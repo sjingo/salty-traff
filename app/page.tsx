@@ -12,6 +12,14 @@ export default function Home() {
         >
           Protected Page
         </Link>
+        <hr />
+        <Link
+          href="/incidents"
+          prefetch={false} // workaround until https://github.com/vercel/vercel/pull/8978 is deployed
+          className="text-stone-400 underline hover:text-stone-200 transition-all"
+        >
+          Incidents Page
+        </Link>
       </div>
       <div className=" bg-slate-400  p-4 grow sm:max-sm:w-full">
         <h2 className="text-stone-200 font-bold text-2xl">2</h2>

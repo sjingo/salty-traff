@@ -40,6 +40,7 @@ export default function Form({ type }: { type: "login" | "register" }) {
             body: JSON.stringify({
               email: e.currentTarget.email.value,
               password: e.currentTarget.password.value,
+              name: e.currentTarget.username.value,
             }),
           }).then(async (res) => {
             setLoading(false);
@@ -59,6 +60,23 @@ export default function Form({ type }: { type: "login" | "register" }) {
     >
       <div>
         <label
+          htmlFor="Username"
+          className="block text-xs text-gray-600 uppercase"
+        >
+          username
+        </label>
+        <input
+          id="Username"
+          name="username"
+          type="text"
+          autoComplete="username"
+          placeholder="rick roll"
+          required={type === "register"}
+          className="mt-1 block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-black focus:outline-none focus:ring-black sm:text-sm"
+        />
+      </div>
+      <div>
+        <label
           htmlFor="email"
           className="block text-xs text-gray-600 uppercase"
         >
@@ -68,7 +86,7 @@ export default function Form({ type }: { type: "login" | "register" }) {
           id="email"
           name="email"
           type="email"
-          placeholder="panic@thedis.co"
+          placeholder="rick@astley.com"
           autoComplete="email"
           required
           className="mt-1 block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-black focus:outline-none focus:ring-black sm:text-sm"
@@ -116,7 +134,7 @@ export default function Form({ type }: { type: "login" | "register" }) {
           Already have an account?{" "}
           <Link href="/login" className="font-semibold text-gray-800">
             Sign in
-          </Link>{" "}
+          </Link>
           instead.
         </p>
       )}
