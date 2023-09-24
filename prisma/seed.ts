@@ -10,12 +10,8 @@ const user: AddUserProps = {
 type Data = {
   name: string;
 };
-// const incidents:
 
-export default async function seed(
-  req: NextApiRequest,
-  res: NextApiResponse<Data>
-) {
+export default async function seed() {
   // users
   await deleteAllUsers();
   await addUser(user);
