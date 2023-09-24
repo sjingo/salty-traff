@@ -34,7 +34,7 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
+  return process.env.NODE_ENV === "development" ? (
     <html lang="en">
       <body className={inter.variable}>
         <Toaster />
@@ -46,5 +46,5 @@ export default async function RootLayout({
         <Footer />
       </body>
     </html>
-  );
+  ) : null;
 }

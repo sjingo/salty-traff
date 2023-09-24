@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export default function Home() {
-  return process.env.NODE_ENV === "development" ? (
+  return (
     <div className="bg-black justify-center md:flex flex-nowrap">
       <div className="p-4 bg-slate-300 sm:max-sm:w-full md:w-1/3">
         <h2 className="text-white  font-bold text-2xl ">1</h2>
@@ -25,5 +25,5 @@ export default function Home() {
         <h2 className="text-stone-200 font-bold text-2xl">2</h2>
       </div>
     </div>
-  ) : null;
+  );
 }
