@@ -4,9 +4,10 @@ import { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 import AuthStatus from "@/components/auth-status";
-import { Suspense } from "react";
+import { ReactNode, Suspense } from "react";
 import Footer from "@/components/footer";
 import Header from "@/components/header";
+import { NextFontWithVariable } from "next/dist/compiled/@next/font";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -29,23 +30,35 @@ export const metadata: Metadata = {
   themeColor: "#FFF",
 };
 
+const HTML = ({
+  inter,
+  children,
+}: {
+  inter: NextFontWithVariable;
+  children: ReactNode;
+}) => (
+  <html lang="en">
+    <body className={inter.variable}>
+      <Toaster />
+      <Suspense fallback="Loading...">
+        <AuthStatus />
+      </Suspense>
+      <Header />
+      <main>{children}</main>
+      <Footer />
+    </body>
+  </html>
+);
+
 export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  console.log("contact me on ... ");
-  return process.env.NODE_ENV === "development" ? (
-    <html lang="en">
-      <body className={inter.variable}>
-        <Toaster />
-        <Suspense fallback="Loading...">
-          <AuthStatus />
-        </Suspense>
-        <Header />
-        <main>{children}</main>
-        <Footer />
-      </body>
-    </html>
-  ) : null;
+   return process.env.ENV === "local" ? (
+    <HTML inter={inter}>{children}</HTML>
+  ) : (
+    <h1>hi</h1>
+  );
+ 
 }
