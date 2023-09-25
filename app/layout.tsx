@@ -34,6 +34,7 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  console.log("contact me on ... ");
   return process.env.NODE_ENV === "development" ? (
     <html lang="en">
       <body className={inter.variable}>
