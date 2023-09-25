@@ -55,9 +55,10 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return process.env.ENV === "local" ? (
+   return process.env.ENV === "local" ? (
     <HTML inter={inter}>{children}</HTML>
   ) : (
     <h1>hi</h1>
   );
+ 
 }
